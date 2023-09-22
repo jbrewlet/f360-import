@@ -29,7 +29,7 @@
 ## How to Run Script
 
 1. Open Script:
-  - Type s on keyboard to search, then "Script" to open Scripts and Add-ins.
+  - Type `s` on keyboard to search, then "Script" to open Scripts and Add-ins.
   - Find Multi-Import-F360
 2. Finder or Explorer Opens.
 3. Select one or multiple STEP or IGES files and confirm.
