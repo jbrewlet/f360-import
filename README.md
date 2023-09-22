@@ -3,7 +3,7 @@
 **This script makes for super quick and direct bulk file imports to Fusion 360.**
 
 - Imports STEP and IGS files in bulk
-- Creates a component for each file and names the compoonent the file name.
+- Creates a component for each file and names the component the file name.
 - Reports the number of successful and failed imports via a message box
 
 ![Import](./assets/multi-import.gif)
