@@ -22,6 +22,8 @@
 
 - Stick the script in a shared folder so the whole team can easily access it.
 
+### Watch the Example Video
+[![Fastest Fusion 360 STEP Import](https://img.youtube.com/vi/7SlQlq7Tulg/maxresdefault.jpg)](https://www.youtube.com/watch?v=7SlQlq7Tulg)
 
 ---
 
