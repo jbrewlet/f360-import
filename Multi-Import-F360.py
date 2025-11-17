@@ -16,10 +16,10 @@ def run(context):
         fail_count = 0
         failed_files = []
 
-        # Create a file dialog to select STEP, IGS files
+        # Create a file dialog to select supported files
         fileDialog = ui.createFileDialog()
-        fileDialog.title = 'Select STEP, IGS Files'
-        fileDialog.filter = 'STEP Files (*.stp; *.step; *.igs; *.iges)'
+        fileDialog.title = 'Select Files to Import'
+        fileDialog.filter = 'All Supported (*.stp; *.step; *.igs; *.iges; *.sat; *.smt; *.smb);;STEP Files (*.stp; *.step);;IGES Files (*.igs; *.iges);;SAT Files (*.sat);;SMT Files (*.smt; *.smb)'
         fileDialog.filterIndex = 0
         fileDialog.isMultiSelectEnabled = True
         dialogResult = fileDialog.showOpen()
@@ -31,8 +31,26 @@ def run(context):
                     # Extract the file name without extension to use as the component name
                     componentName = os.path.splitext(os.path.basename(filename))[0]
                     
-                    # Import the file directly into the root component
-                    importOptions = app.importManager.createSTEPImportOptions(filename)
+                    # Get file extension to determine import method
+                    fileExt = os.path.splitext(filename)[1].lower()
+                    
+                    # Import the file directly into the root component using appropriate method
+                    importOptions = None
+                    if fileExt in ['.stp', '.step']:
+                        importOptions = app.importManager.createSTEPImportOptions(filename)
+                    elif fileExt in ['.igs', '.iges']:
+                        importOptions = app.importManager.createIGESImportOptions(filename)
+                    elif fileExt == '.sat':
+                        importOptions = app.importManager.createSATImportOptions(filename)
+                    elif fileExt in ['.smt', '.smb']:
+                        importOptions = app.importManager.createSMTImportOptions(filename)
+                    else:
+                        # Unsupported file type
+                        fail_count += 1
+                        failed_files.append(os.path.basename(filename))
+                        print(f'Unsupported file type: {os.path.basename(filename)}')
+                        continue
+                    
                     app.importManager.importToTarget(importOptions, rootComp)
 
                     # Find the last created occurrence and rename it
