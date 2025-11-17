@@ -1,0 +1,21 @@
+{
+  "autodeskProduct": "Fusion",
+  "type": "addin",
+  "id": "com.pdxcnc.multiimportf360",
+  "name": "Multi-Import F360",
+  "author": "Portland CNC",
+  "company": "Portland CNC",
+  "description": {
+    "": "Bulk import STEP, IGES, SAT, and SMT files into Fusion 360 with automatic component naming"
+  },
+  "version": "0.2",
+  "runOnStartup": false,
+  "supportedOS": "windows|mac",
+  "editEnabled": true,
+  "isApplication": true,
+  "isAddin": true,
+  "isScript": false,
+  "icon": "icon.png",
+  "iconFilename": "icon.png"
+}
+
