@@ -1,0 +1,26 @@
+{
+  "name": "Multi-Import F360",
+  "description": "Bulk import STEP, IGES, SAT, and SMT files into Fusion 360 with automatic component naming",
+  "version": "1.0.0",
+  "author": "Portland CNC",
+  "authorUrl": "https://pdxcnc.com",
+  "addinId": "MultiImportF360",
+  "addinType": "ApplicationCommand",
+  "commands": [
+    {
+      "id": "MultiImportCommand",
+      "name": "Multi-Import Files",
+      "description": "Import multiple STEP, IGES, SAT, and SMT files at once",
+      "tooltip": "Bulk import STEP, IGES, SAT, and SMT files",
+      "resources": {
+        "commandIcon": {
+          "16": "MultiImportF360/resources/icon.png",
+          "32": "MultiImportF360/resources/icon.png",
+          "48": "MultiImportF360/resources/icon.png",
+          "64": "MultiImportF360/resources/icon.png"
+        }
+      }
+    }
+  ]
+}
+
