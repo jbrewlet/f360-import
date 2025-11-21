@@ -1,73 +1,53 @@
-# Fusion 360 Batch File Importer
+# Autodesk Fusion Batch File Importer v.2
 
-**This add-in makes for super quick and direct bulk file imports to Fusion 360.**
+**This add-in makes for ⚡ basically instant ⚡ direct bulk file imports to Fusion.**
+- Bulk import of **STEP**, **IGES**, **SAT**, and **SMT** files
+- Creates a **component** for each imported file, named after the file
+- **Reports** successful and failed imports via message box
+- Lists failed files for troubleshooting
 
-- Imports multiple file formats in bulk: **STEP**, **IGES**, **SAT**, and **SMT** files
-- Creates a component for each file and names the component the file name.
-- Reports the number of successful and failed imports via a message box
-  - Lists Failed files - (tip: screenshot this)
+![Import](./assets/v.2-add-in-import.gif)
+### V0.2 – Now Add-in
+> Among other things, this lets you create a keyboard shortcut
 
-
-![Import](./assets/multi-import.gif)
+![Add-in Screen](./assets/v.2-addin-screen.png)
 
 ![Fails](./assets/multi-import-fail-files.png)
 
-## Installation - Add-in (Recommended)
+## Installation
 
-1. **Download the Add-in**: Clone or download this GitHub repo to get the add-in folder.
-2. **Fire Up Fusion 360**: Open Fusion 360 and go to `Tools > Add-ins`.
-3. **Add Add-in**: In the `Scripts and Add-Ins` dialog, click the green `+` button and choose "Add Add-in".
-4. **Select the Folder**: Navigate to the `MultiImportF360` folder in this repository and select it.
-5. **Enable the Add-in**: Check the box next to "Multi-Import F360" to enable it.
-6. **Access the Command**: The "Multi-Import Files" command will appear in:
-   - The Tools toolbar
-   - The Tools menu
+1. **Download the ZIP file**: Click the green "Code" button above and select **Download ZIP**
+2. **Extract the ZIP**: Unzip the downloaded file to a location on your computer
+3. **Open Fusion**: Go to `Tools > Add-ins`
+4. **Add the Add-in**: Click the green `+` button and select "Add Add-in"
+5. **Select the Folder**: Navigate to and select the `MultiImportF360` folder from the extracted ZIP
+6. **Enable**: Check the box next to **Multi-Import F360** to enable it. Also check &&Run at Startup**.
+7. **Access Add-in**: The "Multi-Import Files" command will appear in:
+   - Design/Tools toolbar
+   - Design/Tools menu
 
-### Note for Teams
+![Taskbar Hover](./assets/v.2-taskbar-hover.png)
 
-- Stick the add-in folder in a shared location (Google Drive / Dropbox) so the whole team can easily access it.
-- Each team member needs to add the add-in from the shared location.
+### Team Installation
 
-## Installation - Script (Legacy)
-
-If you prefer to use the standalone script instead of the add-in:
-
-1. **Download the Script**: Use the `Multi-Import-F360.py` file from this repo.
-2. **Fire Up Fusion 360**: Open Fusion 360 and go to `Tools > Add-ins`.
-3. **Add Script**: In the `Scripts and Add-Ins` dialog, click the green `+` button or choose "Add Script".
-4. **Find the File**: Navigate to the folder where you downloaded the script and select it. 
-  - I'd suggest moving the file to a better location than the Downloads folder.
-5. **Run It**: After the script shows up in your add-ins list, hit the `Run` button.
-6. **Check It**: You'll see a message box with the number of successful and failed imports.
-
-### Watch our Tutorial Video
-[![Fastest Fusion 360 STEP Import](https://img.youtube.com/vi/7SlQlq7Tulg/maxresdefault.jpg)](https://www.youtube.com/watch?v=7SlQlq7Tulg)
-[Watch Video](https://www.youtube.com/watch?v=7SlQlq7Tulg)
-
----
-
+Extract the ZIP file and place the `MultiImportF360` folder in a shared location (Google Drive, Dropbox, etc.). Each team member needs to add the add-in from the shared location.
 
 ## How to Use
 
-### Using the Add-in (Recommended)
-
-1. **Access the Command**:
-   - Click the "Multi-Import Files" button in the Tools toolbar, OR
-   - Go to `Tools > Multi-Import Files` from the menu
-2. **Select Files**: Finder or Explorer opens. Select one or multiple supported files (STEP, IGES, SAT, or SMT files) and confirm.
-3. **Import**: Watch as the files import in no time without any uploading or processing needed.
-4. **Review Results**: You'll see a message box with the number of successful and failed imports.
-
-### Using the Script (Legacy)
-
-1. **Open Script**:
-   - Type `s` on keyboard to search, then "Script" to open Scripts and Add-ins.
-   - Find Multi-Import-F360
-2. **Run**: Click the `Run` button
-3. **Select Files**: Finder or Explorer opens. Select one or multiple supported files (STEP, IGES, SAT, or SMT files) and confirm.
-4. **Import**: Watch as the files import in no time without any uploading or processing needed.
-5. **Review Results**: You'll see a message box with the number of successful and failed imports.
-
+1. Click "Multi-Import Files" in the Tools toolbar, or go to `Tools > Multi-Import Files`
+2. Select one or multiple supported files (STEP, IGES, SAT, or SMT) from the file picker
+3. Files will import automatically
+4. Review the message box for import results
 
 ---
-[pdxcnc.com](https://pdxcnc.com?ref=multi-import-github)
+
+### Tutorial Video
+
+[![Fastest Fusion 360 STEP Import](https://img.youtube.com/vi/7SlQlq7Tulg/maxresdefault.jpg)](https://www.youtube.com/watch?v=7SlQlq7Tulg)
+[Watch Video](https://www.youtube.com/watch?v=7SlQlq7Tulg)
+> Shows previous script based version. Same functionality except now an Add-in.
+---
+
+🅿️ [pdxcnc.com](https://s.pdxcnc.com?ref=multi-import-github)
+
+[☕ Buy me a coffee](http://buymeacoffee.com/pdxcnc)

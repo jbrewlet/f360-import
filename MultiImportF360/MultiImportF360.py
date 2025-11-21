@@ -130,32 +130,42 @@ def run(context):
         # Get add-in path - this is the root of the add-in folder
         addinPath = os.path.dirname(os.path.abspath(__file__))
         
-        # Use full file system path to icon folder (matching working app pattern exactly)
-        iconFolder = os.path.join(addinPath, 'resources', 'multiimport')
+        # Use resources/icon folder for command icons
+        iconFolder = os.path.join(addinPath, 'resources', 'icon')
         
         # Ensure folder exists and normalize the path
         if os.path.exists(iconFolder):
-            # Normalize path (resolve any symlinks, etc.)
             iconFolder = os.path.normpath(os.path.abspath(iconFolder))
         else:
-            # Fallback to resources/icon if multiimport doesn't exist
-            iconFolder = os.path.join(addinPath, 'resources', 'icon')
-            if os.path.exists(iconFolder):
-                iconFolder = os.path.normpath(os.path.abspath(iconFolder))
-            else:
-                iconFolder = ''
+            iconFolder = ''
         
-        # Remove existing command definition if it exists
-        cmdDef = ui.commandDefinitions.itemById('MultiImportCommand')
-        if cmdDef:
-            cmdDef.deleteMe()
+        # Remove OLD command definition completely
+        oldCmdDef = ui.commandDefinitions.itemById('MultiImportCommand')
+        if oldCmdDef:
+            # Remove from all panels first
+            designWorkspace = ui.workspaces.itemById('FusionSolidEnvironment')
+            if designWorkspace:
+                solidTab = designWorkspace.toolbarTabs.itemById('SolidTab')
+                if solidTab:
+                    for panelId in ['InsertPanel', 'SolidInsertPanel', 'SolidScriptsAddinsPanel']:
+                        panel = solidTab.toolbarPanels.itemById(panelId)
+                        if panel:
+                            control = panel.controls.itemById('MultiImportCommand')
+                            if control:
+                                control.deleteMe()
+            oldCmdDef.deleteMe()
         
-        # Create command with icon folder path
-        # Fusion 360 will look for 16x16.svg/16x16.png and 32x32.svg/32x32.png in this folder
+        # Create NEW command with fresh icon folder path
+        # Use absolute path and ensure it's properly formatted
+        if iconFolder:
+            # Ensure path uses forward slashes (works on both Windows and Mac)
+            iconFolder = iconFolder.replace('\\', '/')
+        
+        # Create command - Fusion 360 will look for 16x16.svg/16x16.png and 32x32.svg/32x32.png
         cmdDef = ui.commandDefinitions.addButtonDefinition(
             'MultiImportCommand',
             'Multi-Import Files',
-            'Bulk import STEP, IGES, SAT, and SMT files into Fusion 360',
+            'Bulk import STEP, IGES, SAT, and SMT files.\n\nClick to open file browser, then multi-select files for near-instant import.\n\nMade by PDX CNC',
             iconFolder
         )
         
